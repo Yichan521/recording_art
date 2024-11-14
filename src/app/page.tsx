@@ -178,19 +178,19 @@ export default function Component() {
 
   return (
     <div className="w-screen h-screen bg-yellow-50 overflow-hidden relative">
-      <div 
+      <div
         ref={gridRef}
         className="w-full h-full grid"
-        style={{ 
+        style={{
           gridTemplateColumns: `repeat(${GRID_SIZE}, 1fr)`,
-          gridTemplateRows: `repeat(${GRID_SIZE}, 1fr)`
+          gridTemplateRows: `repeat(${GRID_SIZE}, 1fr)`,
         }}
       >
         {Array.from({ length: GRID_SIZE * GRID_SIZE }).map((_, index) => (
           <div
             key={index}
             className={`transition-colors duration-200 ${
-              hoveredCell === index ? 'bg-[#f5f5dc]' : 'bg-yellow-100'
+              hoveredCell === index ? "bg-[#f5f5dc]" : "bg-yellow-100"
             }`}
             onMouseEnter={() => handleCellHover(index)}
             onMouseLeave={() => setHoveredCell(null)}
@@ -201,9 +201,12 @@ export default function Component() {
         </AnimatePresence>
       </div>
       {Array.from({ length: GRID_SIZE * GRID_SIZE }).map((_, index) => (
-        <audio 
-          key={index} 
-          ref={el => audioRefs.current[index] = el} 
+        <audio
+          key={index}
+          ref={(el) => {
+            audioRefs.current[index] = el;
+            return undefined;
+          }}
           src={`/示例${index + 1}.mp4`}
         />
       ))}
@@ -212,24 +215,27 @@ export default function Component() {
         onClick={togglePause}
         variant="outline"
       >
-        {isPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
+        {isPaused ? (
+          <Play className="h-4 w-4" />
+        ) : (
+          <Pause className="h-4 w-4" />
+        )}
       </Button>
       {isMenuOpen && (
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-8 rounded-lg space-y-4">
             <h2 className="text-2xl font-bold">菜单</h2>
-            <Button className="w-full" onClick={() => setIsMenuOpen(false)}>继续游戏</Button>
+            <Button className="w-full" onClick={() => setIsMenuOpen(false)}>
+              继续游戏
+            </Button>
             <Button className="w-full">团队成员</Button>
             <div className="flex items-center justify-between">
               <span>背景音乐：</span>
-              <Switch
-                checked={isMusicOn}
-                onCheckedChange={setIsMusicOn}
-              />
+              <Switch checked={isMusicOn} onCheckedChange={setIsMusicOn} />
             </div>
           </div>
         </div>
       )}
     </div>
-  )
+  );
 }
