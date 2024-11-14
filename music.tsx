@@ -89,7 +89,7 @@ export default function Component() {
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
-            transition={{ duration: 0.3, times: [0, 0.7, 1], ease: "easeInOut" }}
+            transition={{ duration: 0.7, times: [0, 0.7, 1], ease: "easeInOut" }}
             style={{
               position: 'absolute',
               left: animation.x,
@@ -126,7 +126,7 @@ export default function Component() {
             initial={{ opacity: 0, scale: 0, rotate: 0 }}
             animate={{ opacity: 1, scale: 1, rotate: 360 }}
             exit={{ opacity: 0, scale: 0 }}
-            transition={{ duration: 0.5, times: [0, 0.5, 1], ease: "easeInOut" }}
+            transition={{ duration: 1.5, times: [0, 0.5, 1], ease: "easeInOut" }}
             style={{
               position: 'absolute',
               left: animation.x,
@@ -163,7 +163,7 @@ export default function Component() {
                 strokeWidth="4"
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
-                transition={{ duration: 0.5, ease: "linear" }}
+                transition={{ duration: 1.5, ease: "linear" }}
               />
             </svg>
           </motion.div>
