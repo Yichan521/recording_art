@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useRef, useEffect } from "react";
 import { motion, AnimatePresence, Variants} from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -54,15 +54,6 @@ const backgroundColors = [
   "rgba(0,0,0,0.7)",
   "rgba(255,255,255,0.7)",
   "rgba(255,255,224,0.7)",
-];
-const rainbowColors = [
-  "#FF0000",
-  "#FF7F00",
-  "#FFFF00",
-  "#00FF00",
-  "#00FFFF",
-  "#0000FF",
-  "#8B00FF",
 ];
 
 export default function Component() {
