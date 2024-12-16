@@ -207,40 +207,13 @@ export default function Component() {
       // 更新音频资源
       audioRefs.current.forEach((audioRef, index) => {
         if (audioRef) {
-          audioRef.src = `/${character}${index + 1}.mp3`;
+          audioRef.src = `/${character}${index + 1}.wav`;
         }
       });
       setIsTransitioning(false);
       setNextCharacter(null);
-    }, 1000);
+    }, 250);
   }, []);
-
-  // const lightningVariants = {
-  //   initial: (direction: string) => {
-  //     switch (direction) {
-  //       case "top":
-  //         return { y: "-100%", x: "50%" };
-  //       case "right":
-  //         return { x: "100%", y: "50%" };
-  //       case "bottom":
-  //         return { y: "100%", x: "50%" };
-  //       case "left":
-  //         return { x: "-100%", y: "50%" };
-  //     }
-  //   },
-  //   animate: (direction: string) => {
-  //     switch (direction) {
-  //       case "top":
-  //         return { y: "100%", x: "50%" };
-  //       case "right":
-  //         return { x: "-100%", y: "50%" };
-  //       case "bottom":
-  //         return { y: "-100%", x: "50%" };
-  //       case "left":
-  //         return { x: "100%", y: "50%" };
-  //     }
-  //   },
-  // };
 
   return (
     <div
@@ -322,10 +295,10 @@ export default function Component() {
           ref={(el) => {
             if (el) audioRefs.current[index] = el;
           }}
-          src={`/${currentCharacter}${index + 1}.mp3`}
+          src={`/${currentCharacter}${index + 1}.wav`}
         />
       ))}
-      <audio ref={backgroundMusicRef} src="/1234567.mp4" loop />
+      <audio ref={backgroundMusicRef} src="/Mixdown.mp3" loop />
       <Button
         className="absolute top-4 right-4 z-20"
         onClick={() => setIsMenuOpen(true)}
